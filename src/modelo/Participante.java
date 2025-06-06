@@ -7,7 +7,7 @@ public class Participante extends Persona{
 
     @Override
     public void mostrarDatos() {
-        System.out.println("PARTICIPANTE: " + nombre + "EDAD: " + edad);
+        System.out.println("Nombre: " + nombre + "\nEdad: " + edad+"\n");
     }
 
 }
