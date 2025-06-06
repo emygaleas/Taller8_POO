@@ -31,6 +31,7 @@ public class Principal {
 
             switch (opcion){
                 case 1 -> registrarParticipante();
+                case 2 -> verCursosPorEdad();
                 case 3 -> inscribirCurso();
                 case 4 -> verInscritos();
                 case 5 -> {
@@ -124,5 +125,27 @@ public class Principal {
             System.out.println("Opción inválida. Intente de nuevo.");
         }
     }
+
+    static void verCursosPorEdad() {
+        System.out.println("---------- VER CURSOS DISPONIBLES POR EDAD ----------");
+        System.out.print("Ingrese la edad del participante: ");
+        int edad = sc.nextInt();
+        sc.nextLine();
+
+        boolean hayCursos = false;
+
+        for (Curso curso : cursos) {
+            if (edad >= curso.getEdadMin() && edad <= curso.getEdadMax()) {
+                System.out.println("- " + curso.getNombre() + " (" + curso.getDisciplina() + "), Edad recomendada: "
+                        + curso.getEdadMin() + " a " + curso.getEdadMax());
+                hayCursos = true;
+            }
+        }
+
+        if (!hayCursos) {
+            System.out.println("No hay cursos disponibles para la edad ingresada.");
+        }
+    }
+
 
 }
